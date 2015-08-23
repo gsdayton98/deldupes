@@ -1,0 +1,4 @@
+pkg
+*.a
+golang.org
+github.com
