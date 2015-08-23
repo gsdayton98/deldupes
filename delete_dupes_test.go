@@ -1,13 +1,15 @@
-// Test deleteDuplicates()
+// Test deldupes/DeleteDuplicates
 package deldupes
 
 import (
 	"sort"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 )
 
+// TestBasic tests the basic functionality of DeleteDuplicates.
+// Test cases cover a normal array with no duplicates, empty slices,
+// duplicates at the beginning, middle, end, and small slices.
 func TestBasic(t *testing.T) {
 	var testCases = []struct {
 		sample   []int
@@ -32,12 +34,11 @@ func TestBasic(t *testing.T) {
 	}
 }
 
+// TestUnusedFunction checks that application will panic if deldupes.Push is ever called.  Panic on calling
+// deldupes.Push is reasonable because it could only occur on sever corruption.
 func TestUnusedFunction(t *testing.T) {
- errorSynthesizer := make(HeapHelper, 42)
- assert.Panics(t, func() {errorSynthesizer.Push(0x666)}, "Internal function Push should panic")
+	errorSynthesizer := make(HeapHelper, 42)
+	assert.Panics(t, func() { errorSynthesizer.Push(0x666) }, "Internal function Push should panic")
 
 }
 
-func TestStub(t *testing.T) {
-	assert.True(t, true, "Nothing implemented yet")
-}
